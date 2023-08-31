@@ -1,0 +1,30 @@
+#
+# (C) Copyright 2023
+# Andriyanto Halim andriyanto.halim@gmail.com
+# ADC Menu
+#
+menu "ADC Configuration"
+    depends on ADC_ENABLE
+
+    config ADC_CH0_ENABLE
+        bool "Enable ADC Channel 0"
+        default n
+    
+    menu "ADC CH0 Configuration"
+        depends on ADC_CH0_ENABLE
+        config ADC_CH0_OFFSET
+            int "ADC CH0 default offset"
+            range 0 2048
+            default 1024
+    endmenu # "ADC CH0 Configuration"
+
+  
+    config ADC_CH1_ENABLE
+        bool "Enable ADC Channel 1"
+        default n
+
+    config ADC_CH2_ENABLE
+        bool "Enable ADC Channel 2"
+        default n
+    
+endmenu # "ADC Configuration"

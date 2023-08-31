@@ -1,0 +1,37 @@
+#
+# (C) Copyright 2023
+# Andriyanto Halim andriyanto.halim@gmail.com
+# Main Menu
+#
+mainmenu "Project Configuration"
+
+menu "Clock Configuration"
+    choice
+        prompt "Select Clock Frequency"
+        default CLOCK_64_MHz
+
+        config CLOCK_64_MHz
+            bool "64 MHz"
+
+        config CLOCK_32_MHz
+            bool "32 MHz"
+
+        config CLOCK_16_MHz
+            bool "16 MHz"
+    endchoice
+endmenu # "Clock Configuration"
+
+config ADC_ENABLE
+    bool "Enable ADC"
+    default n
+source "adc/Kconfig"
+
+config PWM_ENABLE
+    bool "Enable PWM"
+    default n
+source "pwm/Kconfig"
+
+config DSP_ENABLE
+    bool "Enable DSP"
+    default n
+source "dsp/Kconfig"

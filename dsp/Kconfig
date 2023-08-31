@@ -1,0 +1,32 @@
+#
+# (C) Copyright 2023
+# Andriyanto Halim andriyanto.halim@gmail.com
+# DSP Menu
+#
+menu "DSP Configuration"
+    depends on DSP_ENABLE
+
+    config DSP_PI_CTRL_ENABLE
+        bool "Enable PI_Controller"
+        default n
+    
+    menu "PI Controller Configuration"
+        depends on DSP_PI_CTRL_ENABLE
+        
+        config PI_CTRL_KP
+            int "Kp Value"
+            range 0 65535
+            default 0
+        
+        config PI_CTRL_KI
+            int "Ki Value"
+            range 0 65535
+            default 0
+        
+        config PI_CTRL_SCALING
+            string "Scaling"
+            default "0.0f"
+
+    endmenu # "PI Controller Configuration"
+    
+endmenu # "DSP Configuration"

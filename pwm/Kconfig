@@ -1,0 +1,36 @@
+#
+# (C) Copyright 2023
+# Andriyanto Halim andriyanto.halim@gmail.com
+# PWM Menu
+#
+menu "PWM Configuration"
+    depends on PWM_ENABLE
+
+    config PWM0_ENABLE
+        bool "Enable PWM 0"
+        default n
+    
+    menu "PWM0 Configuration"
+        depends on PWM0_ENABLE
+        
+        config PWM0_PERIOD
+            int "PWM0 Period Value"
+            range 0 65535
+            default 1024
+        
+        config PWM0_COMPARE
+            int "PWM0 Compare Value"
+            range 0 65535
+            default 1024
+
+    endmenu # "PWM0 Configuration"
+    
+    config PWM1_ENABLE
+        bool "Enable PWM 1"
+        default n
+
+    config PWM2_ENABLE
+        bool "Enable PWM 2"
+        default n
+
+endmenu # "PWM Configuration"
