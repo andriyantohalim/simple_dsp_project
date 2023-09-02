@@ -1,0 +1,3 @@
+[submodule "comm_module"]
+	path = comm_module
+	url = https://github.com/andriyantohalim/comm_module
